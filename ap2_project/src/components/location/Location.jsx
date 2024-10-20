@@ -18,9 +18,9 @@ function Location() {
 
     return (
         <>
-            <Form className="custom-form" onSubmit={handleSubmit}>
+            <h1 className="my-4">Escreva abaixo seu CEP para consulta</h1>
+            <Form className="custom-form mb-5" onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>CEP</Form.Label>
                     <Form.Control name="cepInput" type="text" placeholder="Insira seu cep" />
                     <Form.Text className="text-muted">
                         Não usaremos seus dados de localização para demais objetivos. Confia.
@@ -30,10 +30,28 @@ function Location() {
                     Pesquisar
                 </Button>
             </Form>
-            {dados && <h1>{dados.localidade}</h1>}
-            {dados && <h1>{dados.estado}</h1>}
-            {error && <h1>Error</h1>}
-            {loading && <h1>Carregando...</h1>}
+            {loading ? (
+                <h1>Carregando...</h1>
+            ) : error ? (
+                <h1>Error</h1>
+            ) : dados ? (
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Cidade</th>
+                            <th scope="col">Bairro</th>
+                            <th scope="col">Endereço</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{dados.localidade}</td>
+                            <td>{dados.bairro}</td>
+                            <td>{dados.logradouro}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            ) : null}
         </>
     )
 }

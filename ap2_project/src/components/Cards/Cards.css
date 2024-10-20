@@ -1,0 +1,9 @@
+.card{
+    background-color: gray;
+    margin:1px;
+}
+
+.card-image{
+    width: 15em;
+    border-radius: 15em;
+}

@@ -40,3 +40,20 @@
 .read-the-docs {
   color: #888;
 }
+
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.card-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
