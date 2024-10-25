@@ -17,7 +17,7 @@ const Header = () => {
             height="60"
             className="rounded-circle mx-4"
           />
-        <h4>Computacao</h4>
+        <h4>Computação</h4>
         </Navbar.Brand>
         <Nav>
           <NavLink className='nav-link' to="/location">Localização</NavLink>

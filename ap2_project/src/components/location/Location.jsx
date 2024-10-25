@@ -7,7 +7,7 @@ import Form from 'react-bootstrap/Form';
 
 function Location() {
     const [cepInput, setCepInput] = useState(null);
-    const [dados, error, loading] = useFetch(cepInput);
+    const [dados, error, loading, tempo] = useFetch(cepInput);
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -30,17 +30,19 @@ function Location() {
                     Pesquisar
                 </Button>
             </Form>
+            
             {loading ? (
                 <h1>Carregando...</h1>
             ) : error ? (
                 <h1>Error</h1>
             ) : dados ? (
-                <table class="table">
+                <table className="table">
                     <thead>
                         <tr>
                             <th scope="col">Cidade</th>
                             <th scope="col">Bairro</th>
                             <th scope="col">Endereço</th>
+                            <th scope="col">Horário</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,12 +50,15 @@ function Location() {
                             <td>{dados.localidade}</td>
                             <td>{dados.bairro}</td>
                             <td>{dados.logradouro}</td>
+                            <td>
+                                {new Date().getHours()}:{new Date().getMinutes()}
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             ) : null}
         </>
-    )
+    )    
 }
 
 export default Location
